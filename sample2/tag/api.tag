@@ -1,19 +1,19 @@
 <api>
-    <h2>{ count }</h2>
+    <h2>{ text }</h2>
 
     <script>
-        this.count = ('Loading...')
+        this.text = ('Loading...')
 
         var self = this
 
         console.log(opts)
 
-        fetch('https://api.facebook.com/restserver.php?method=links.getStats&format=json&urls=' + opts.url)
+        fetch('http://qiita.com/api/v2/schema?locale=ja')
             .then(function (data) {
                 return data.json()
             })
             .then(function (json) {
-                self.count = json[0].total_count
+                self.text = json['description']
                 self.update()
             })
     </script>
